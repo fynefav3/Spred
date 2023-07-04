@@ -17,12 +17,6 @@ import { useNavigation } from '@react-navigation/native';
 import Home from '../../../assets/svg-components/home';
 import Slide from '../../../assets/svg-components/slide';
 
-// bottom tab
-import HomeIcon from '../../../assets/svg-components/home-icon';
-import NewRelease from '../../../assets/svg-components/new-release';
-import Downloads from '../../../assets/svg-components/download-icon';
-import Spred from '../../../assets/svg-components/spred';
-
 const Homepage = () => {
   const colorScheme = useColorScheme();
   const navigation = useNavigation();
@@ -88,14 +82,16 @@ const Homepage = () => {
           }}
           source={require('../../../assets/search.png')}
         />
-        <Image
-          style={{
-            width: 24,
-            marginRight: 10,
-            height: 24,
-          }}
-          source={require('../../../assets/download.png')}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Download')}>
+          <Image
+            style={{
+              width: 24,
+              marginRight: 10,
+              height: 24,
+            }}
+            source={require('../../../assets/download.png')}
+          />
+        </TouchableOpacity>
         <Image
           style={{
             width: 48,
@@ -151,10 +147,18 @@ const Homepage = () => {
             paddingHorizontal: 5,
           }}
         >
-          <Text style={{ fontSize: 14, fontWeight: '400' }}>ORIGINAL</Text>
-          <Text style={{ fontSize: 14, fontWeight: '400' }}>MOVIES</Text>
-          <Text style={{ fontSize: 14, fontWeight: '400' }}>SERIES</Text>
-          <Text style={{ fontSize: 14, fontWeight: '400' }}>SKIT</Text>
+          <Text style={{ fontSize: 14, fontWeight: '400', color: '#ffffff' }}>
+            ORIGINAL
+          </Text>
+          <Text style={{ fontSize: 14, fontWeight: '400', color: '#ffffff' }}>
+            MOVIES
+          </Text>
+          <Text style={{ fontSize: 14, fontWeight: '400', color: '#ffffff' }}>
+            SERIES
+          </Text>
+          <Text style={{ fontSize: 14, fontWeight: '400', color: '#ffffff' }}>
+            SKIT
+          </Text>
         </View>
         <Slide />
       </View>
@@ -171,23 +175,23 @@ const Homepage = () => {
         >
           <View style={{ height: 20 }} />
           {/* first slider starts here */}
-          <TouchableOpacity onPress={()=> navigation.navigate("PlayVideo")}>
-          <View
-            style={{
-              height: 212,
-              backgroundColor: '#ffffff',
-              borderRadius: 5,
-            }}
-          >
-            <Image
+          <TouchableOpacity onPress={() => navigation.navigate('PlayVideo')}>
+            <View
               style={{
-                resizeMode: 'cover',
-                justifyContent: 'center',
                 height: 212,
+                backgroundColor: '#ffffff',
+                borderRadius: 5,
               }}
-              source={require('../../../assets/merrymen.png')}
-            />
-          </View>
+            >
+              <Image
+                style={{
+                  resizeMode: 'cover',
+                  justifyContent: 'center',
+                  height: 212,
+                }}
+                source={require('../../../assets/merrymen.png')}
+              />
+            </View>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -283,57 +287,6 @@ const Homepage = () => {
           />
         </View>
       </View>
-
-      {/* Bottom nav bar */}
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          marginTop: 10,
-        }}
-      >
-        <View
-          style={{
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <HomeIcon />
-          <Text style={{ fontSize: 8, color: '#ffffff' }}>HOME</Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <NewRelease />
-          <Text style={{ fontSize: 8, color: '#ffffff' }}>NEW RELEASE</Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <Downloads />
-          <Text style={{ fontSize: 8, color: '#ffffff' }}>DOWNLOADS</Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <Spred />
-          <Text style={{ fontSize: 8, color: '#ffffff' }}>SPRED</Text>
-        </View>
-      </View>
-      {/* Bottom nav bar ends */}
     </View>
   );
 };

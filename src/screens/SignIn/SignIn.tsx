@@ -41,7 +41,7 @@ const SignIn = () => {
     if (isValid) {
       setErrorTitle('');
       setErrorMessage('');
-      navigation.navigate('Homepage');
+      navigation.navigate('dashboard');
     } else {
       setErrorTitle('Incorrect mobile number/password,');
       setErrorMessage(' please try again');

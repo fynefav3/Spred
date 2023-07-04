@@ -10,4 +10,5 @@ export { default as PhoneVerification } from './PhoneVerification/PhoneVerificat
 export { default as VerificationSuccessful } from './VerificationSuccessful/VerificationSuccessful';
 export { default as Success } from './Success/Success';
 export { default as PlayVideo } from './PlayVideo/PlayVideo';
+export { default as Download } from './Download/Download';
 
